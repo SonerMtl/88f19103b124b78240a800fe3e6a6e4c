@@ -2,11 +2,11 @@
   <div class="container mt-40">
     <div class="row">
       <div class="col-9">
-        <Products v-if="products.length" :products="products" />
+        <Products v-if="products.length" :products="products" :searchTerm="searchTerm"/>
       </div>
       <div class="col-3">
-          <form>
-              <input type="text" placeholder="Search..." class="search-input" ref="searchInput">
+          <form @submit.prevent="handleSubmit">
+              <input type="text" placeholder="Search..." class="search-input" v-model="searchTerm">
           </form>
       </div>
     </div>
@@ -23,7 +23,13 @@ export default {
   data() {
     return {
       products: [],
+      searchTerm: null,
     };
+  },
+  methods: {
+      handleSubmit() {
+          
+      }
   },
   mounted() {
     fetch("https://teknasyon.netlify.app/.netlify/functions/products", {
