@@ -1,0 +1,62 @@
+*,
+*::before
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* TYPOGRAPHY */
+    --fs-xs: 14px;
+    --fs-sm: 16px;
+    --fs-md: 18px;
+    --fs-lg: 20px;
+    --fs-xl: 24px;
+    --fs-xxl: 32px;
+    --fs-xxxl: 48px;
+
+    --fw-thin: 100;
+    --fw-extralight: 200;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+    --fw-black: 900;
+
+    /* COLORS */
+    --clr-theme-primary: #21BD86;
+    --clr-theme-secondary: #F7F8FC;
+}
+
+body {
+    background-color: var(--clr-theme-secondary);
+
+    font-size: var(--fs-md);
+    font-weight: var(--fw-regular);
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.btn {
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--clr-theme-primary);
+    color: #fff;
+}
