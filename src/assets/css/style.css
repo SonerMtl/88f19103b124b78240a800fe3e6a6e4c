@@ -31,6 +31,12 @@
     --clr-theme-secondary: #F7F8FC;
 }
 
+/* 
+==============================================
+-------------- GlOBAL ELEMETNS ---------------
+==============================================
+*/
+
 body {
     background-color: var(--clr-theme-secondary);
 
@@ -51,6 +57,12 @@ a {
 }
 
 
+/* 
+==============================================
+---------------- COMPONENTS ------------------
+==============================================
+*/
+
 .btn {
     padding: 1rem 2rem;
     text-align: center;
@@ -59,4 +71,18 @@ a {
 .btn-primary {
     background-color: var(--clr-theme-primary);
     color: #fff;
+}
+
+.container-wide {
+    width: 100%;
+    max-width: 1800px;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 1rem;
+    margin: 0 auto;
 }
