@@ -377,6 +377,7 @@ a {
     }
 
     .col-9,
+    .col-6,
     .col-3 {
         width: 100%;
     }
@@ -387,5 +388,19 @@ a {
     .col-3 {
         order: 1;
         margin-bottom: 40px;
+    }
+
+    .product-detail__content {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .product-detail__img-container {
+        padding: 0;
     }
 }
