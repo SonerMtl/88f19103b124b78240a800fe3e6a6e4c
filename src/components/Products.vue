@@ -1,9 +1,22 @@
 <template>
+  <Pagination
+    :products="products"
+    :currentPage="currentPage"
+    :pageSize="pageSize"
+    :searchTerm="searchTerm"
+    :filtList="filtList"
+    :maxFilteredItem="maxFilteredItem"
+    @page:update="updatePage"
+    @page:filterUpdate="updateFilteredPage"
+  />
   <div class="product-container" v-if="searchTerm">
     <router-link
-      v-for="product in filteredList"
-      :key="product"
-      :to="{ name: 'ProductDetailsView', params: { id: product.id, items: product } }"
+      v-for="product in updateFiltered()"
+      :key="product.id"
+      :to="{
+        name: 'ProductDetailsView',
+        params: { id: product.id, items: product },
+      }"
       class="product"
     >
       <div class="product__img-container">
@@ -23,9 +36,12 @@
   </div>
   <div class="product-container" v-else>
     <router-link
-      v-for="product in products"
-      :key="product"
-      :to="{ name: 'ProductDetailsView', params: { id: product.id , items: product } }"
+      v-for="product in visibleItems"
+      :key="product.id"
+      :to="{
+        name: 'ProductDetailsView',
+        params: { id: product.id, items: product },
+      }"
       class="product"
     >
       <div class="product__img-container">
@@ -46,12 +62,61 @@
 </template>
 
 <script>
+import Pagination from "./Pagination.vue";
+
 export default {
+  components: {
+    Pagination,
+  },
   props: ["products", "searchTerm"],
   data() {
     return {
-      
+      currentPage: 0,
+      pageSize: 10,
+      visibleItems: [],
+      filtList: [],
+      maxFilteredItem: null,
     };
+  },
+  beforeMount: function () {
+    this.updateVisibleItems();
+  },
+  methods: {
+    /* -----Unfiltered----- */
+    updatePage(pageNumber) {
+      this.currentPage = pageNumber;
+      this.updateVisibleItems();
+    },
+    updateVisibleItems() {
+      this.visibleItems = this.products.slice(
+        this.currentPage * this.pageSize,
+        this.currentPage * this.pageSize + this.pageSize
+      );
+
+      /* if visibleItems is 0, go back a page. */
+      if (this.visibleItems.length == 0 && this.currentPage > 0) {
+        this.updatePage(this.currentPage - 1);
+      }
+    },
+    /* -----Filtered----- */
+    updateFilteredPage(pageNumber) {
+      this.currentPage = pageNumber;
+      this.updateFiltered();
+    },
+    updateFiltered() {
+      this.maxFilteredItem = this.filteredList.length;
+      this.filtList = this.filteredList.slice(
+        this.currentPage * this.pageSize,
+        this.currentPage * this.pageSize + this.pageSize
+      );
+
+      /* if visibleItems is 0, go back a page. */
+      if (this.filtList.length == 0 && this.currentPage > 0) {
+        this.updateFilteredPage(this.currentPage - 1);
+      }
+
+      return this.filtList;
+    },
   },
   computed: {
     filteredList() {
@@ -62,6 +127,7 @@ export default {
       });
     },
   },
+  updated: function () {},
 };
 </script>
 

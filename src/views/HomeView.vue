@@ -2,13 +2,22 @@
   <div class="container mt-40">
     <div class="row">
       <div class="col-9">
-        <Products v-if="products" :products="products" :searchTerm="searchTerm"/>
+        <Products
+          v-if="products.length"
+          :products="products"
+          :searchTerm="searchTerm"
+        />
         <div v-else>Loading...</div>
       </div>
       <div class="col-3">
-          <form @submit.prevent="handleSubmit">
-              <input type="text" placeholder="Search..." class="search-input" v-model="searchTerm">
-          </form>
+        <form @submit.prevent>
+          <input
+            type="text"
+            placeholder="Search..."
+            class="search-input"
+            v-model="searchTerm"
+          />
+        </form>
       </div>
     </div>
   </div>
@@ -16,9 +25,9 @@
 
 <script>
 import Products from "../components/Products.vue";
-import { useStore } from '../store/ProductStore.js';
-import { storeToRefs } from 'pinia';
 
+import { useStore } from "../store/ProductStore.js";
+import { storeToRefs } from "pinia";
 
 export default {
   components: {
@@ -26,11 +35,11 @@ export default {
   },
   setup() {
     const store = useStore();
-    store.getData()
-    const { products } = storeToRefs(store)
+    store.getData();
+    const { products } = storeToRefs(store);
     return {
       products,
-    }
+    };
   },
   data() {
     return {
@@ -39,9 +48,10 @@ export default {
     };
   },
   methods: {
+
   },
   mounted() {
-    console.log(this.products);
+    
   },
 };
 </script>
