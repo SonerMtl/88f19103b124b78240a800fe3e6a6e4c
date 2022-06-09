@@ -177,6 +177,7 @@ a {
     grid-template-columns: repeat(auto-fill, 224px);
     justify-content: center;
     gap: 20px;
+    padding-bottom: 40px;
 }
 
 .product {
@@ -248,6 +249,12 @@ a {
     outline: none;
     border-color: var(--clr-theme-primary);
 }
+
+/* 
+==============================================
+-------------- PRODUCT-DETAIL ---------------
+==============================================
+*/
 
 .product-detail__img-container{
     display: flex;
@@ -324,6 +331,10 @@ a {
     font-weight: var(--fw-bold);
 }
 
+/* 
+------- Pagination
+*/
+
 .pagination-wrapper {
     margin-bottom: 40px;
     display: flex;
@@ -344,4 +355,37 @@ a {
 
 .pagination-btn:disabled {
     background-color: #ddd;
+}
+
+
+
+/* 
+==============================================
+---------------- RESPONSIVE ------------------
+==============================================
+*/
+
+@media screen and (max-width: 1200px) {
+    .product-container {
+        grid-template-columns: repeat(auto-fill, 48%);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .product-container {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+
+    .col-9,
+    .col-3 {
+        width: 100%;
+    }
+
+    .col-9 {
+        order: 2;
+    }
+    .col-3 {
+        order: 1;
+        margin-bottom: 40px;
+    }
 }

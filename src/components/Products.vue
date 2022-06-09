@@ -126,8 +126,7 @@ export default {
           .includes(this.searchTerm.toLowerCase());
       });
     },
-  },
-  updated: function () {},
+  }
 };
 </script>
 

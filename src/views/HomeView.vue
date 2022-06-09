@@ -47,12 +47,6 @@ export default {
       searchTerm: null,
     };
   },
-  methods: {
-
-  },
-  mounted() {
-    
-  },
 };
 </script>
 
