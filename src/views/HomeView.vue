@@ -2,7 +2,8 @@
   <div class="container mt-40">
     <div class="row">
       <div class="col-9">
-        <Products v-if="products.length" :products="products" :searchTerm="searchTerm"/>
+        <Products v-if="products" :products="products" :searchTerm="searchTerm"/>
+        <div v-else>Loading...</div>
       </div>
       <div class="col-3">
           <form @submit.prevent="handleSubmit">
@@ -15,31 +16,32 @@
 
 <script>
 import Products from "../components/Products.vue";
+import { useStore } from '../store/ProductStore.js';
+import { storeToRefs } from 'pinia';
+
 
 export default {
   components: {
     Products,
   },
+  setup() {
+    const store = useStore();
+    store.getData()
+    const { products } = storeToRefs(store)
+    return {
+      products,
+    }
+  },
   data() {
     return {
-      products: [],
+      store: null,
       searchTerm: null,
     };
   },
   methods: {
-      handleSubmit() {
-          
-      }
   },
   mounted() {
-    fetch("https://teknasyon.netlify.app/.netlify/functions/products", {
-      headers: { "X-Access-Token": "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" },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.products = data.products;
-        console.log(this.products);
-      });
+    console.log(this.products);
   },
 };
 </script>

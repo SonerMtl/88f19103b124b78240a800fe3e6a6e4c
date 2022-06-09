@@ -124,6 +124,16 @@ a {
     flex: 1 0 auto;
 }
 
+.col-6 {
+    width: 50%;
+    flex: 1 0 auto;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
 /* 
 ==============================================
 ------------------ HEADER --------------------
@@ -231,4 +241,79 @@ a {
 .search-input:focus {
     outline: none;
     border-color: var(--clr-theme-primary);
+}
+
+.product-detail__img-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color:  #fff;
+    padding: 2rem 0;
+}
+
+.product-detail__img-container img{
+    max-width: 400px;
+}
+
+.product-detail__content__prices {
+    display: flex;
+    align-items: center;
+}
+
+.product-detail__content__prices span {
+    margin-right: 1rem;
+}
+
+.product-detail__content__prices span:last-child {
+    margin-right: 0;
+}
+
+.tag {
+    background-color: #ddd;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    font-weight: var(--fw-light);
+}
+
+.price {
+    font-weight: var(--fw-bold);
+    color: var(--clr-theme-primary);
+}
+
+.product-detail__content__info {
+    margin-top: 40px;
+}
+
+.product-detail__content__info p {
+    font-size: var(--fs-sm);
+    margin-bottom: 12px;
+}
+
+.product-detail__content__info p > span {
+    font-weight: var(--fw-bold);
+}
+
+.product-detail__content__info p a {
+    color: var(--clr-theme-primary);
+}
+
+.product-detail__content__info ul {
+    margin-top: 40px;
+}
+
+.product-detail__content__info ul li {
+    margin-bottom: 6px;
+}
+
+.product-detail__content__info ul li span {
+    font-size: var(--fs-sm);
+}
+
+.product-detail__content__info ul li .label {
+    font-weight: var(--fw-bold);
 }

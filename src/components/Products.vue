@@ -3,8 +3,7 @@
     <router-link
       v-for="product in filteredList"
       :key="product"
-      :to="{ name: 'ProductDetailsView', params: { id: product.id } }"
-      
+      :to="{ name: 'ProductDetailsView', params: { id: product.id, items: product } }"
       class="product"
     >
       <div class="product__img-container">
@@ -26,13 +25,13 @@
     <router-link
       v-for="product in products"
       :key="product"
-      :to="{ name: 'ProductDetailsView', params: { id: product.id } }"
+      :to="{ name: 'ProductDetailsView', params: { id: product.id , items: product } }"
       class="product"
     >
       <div class="product__img-container">
         <img
           :src="product.image.src"
-          alt="Product Image"
+          :alt="product.title"
           class="product__img"
         />
       </div>
@@ -50,7 +49,9 @@
 export default {
   props: ["products", "searchTerm"],
   data() {
-    return {};
+    return {
+      
+    };
   },
   computed: {
     filteredList() {
