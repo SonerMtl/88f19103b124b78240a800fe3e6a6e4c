@@ -1,19 +1,5 @@
-# front-end_challenge
+# How to run project on localhost
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Open up terminal in your code editor.
+- Type "npm run serve".
+- Open Local link in your browser.
