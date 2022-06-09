@@ -1,1 +1,4 @@
-# 88f19103b124b78240a800fe3e6a6e4c
+# How to run project on localhost
+- Open up your terminal
+- Type "npm run serve"
+- Go to Local link
